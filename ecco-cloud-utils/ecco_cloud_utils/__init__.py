@@ -24,6 +24,7 @@ from .generalized_functions import generalized_transform_to_model_grid_solr
 from .specific_functions import avhrr_sst_kelvin_to_celsius
 from .specific_functions import RDEFT4_remove_negative_values
 from .specific_functions import seaice_concentration_to_fraction
+from .specific_functions import ewh_TELLUS_GRAC_cm_to_m
 
 
 __all__ = ['date_time', 'llc_array_conversion', 'records',

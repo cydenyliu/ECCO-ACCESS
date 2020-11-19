@@ -25,6 +25,7 @@ def RDEFT4_remove_negative_values(ds):
 def avhrr_sst_kelvin_to_celsius(da, field_name):
     if field_name == 'analysed_sst':
         da.attrs['units'] = 'Celsius'
+        da.attrs['units_comment'] = 'converted from Kelvin to Celsius'
         da.values -= 273.15
     return da
 
@@ -32,5 +33,13 @@ def avhrr_sst_kelvin_to_celsius(da, field_name):
 def seaice_concentration_to_fraction(da, field_name):
     if field_name == 'ice_conc':
         da.attrs['units'] = '1'
+        da.attrs['units_comment'] = 'converted from percentage (0-100) to fraction (0-1)' 
+        da.values /= 100.
+    return da
+
+def ewh_TELLUS_GRAC_cm_to_m(da, field_name):
+    if field_name == 'lwe_thickness':
+        da.attrs['units'] = 'm'
+        da.attrs['units_comment'] = 'converted from cm to m'
         da.values /= 100.
     return da
